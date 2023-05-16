@@ -1,0 +1,32 @@
+﻿@model List<FinalTodoApp.Models.Domain.Todo>
+@{
+}
+<a class="btn btn-primary" href="/todos/add"><i class="fa-solid fa-plus"></i> Add Task</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Due</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var todo in Model)
+        {
+        <tr>
+            <td>@todo.Id</td>
+            <td>@todo.Title</td>
+            <td>@todo.Description</td>
+            <td>@todo.Due</td>
+            <td>@todo.isCompleted</td>
+            <td>
+                    <a class="btn btn-warning" href="/todos/View/@todo.Id"><i class="fa-solid fa-pencil"></i></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

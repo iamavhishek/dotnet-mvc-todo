@@ -1,0 +1,32 @@
+﻿@model FinalTodoApp.Models.UpdateTodoViewModel
+@{
+}
+
+<form action="View" method="post">
+
+    <div class="mb-3">
+        <label for="taskTitle" class="form-label">Todo Title</label>
+        <input type="text" class="form-control" id="taskTitle" asp-for="Id" readonly>
+    </div>
+
+    <div class="mb-3">
+        <label for="taskTitle" class="form-label">Todo Title</label>
+        <input type="text" class="form-control" id="taskTitle" asp-for="Title">
+    </div>
+    <div class="mb-3">
+        <label for="taskDescription" class="form-label">Todo Description</label>
+        <textarea class="form-control" id="taskDescription" rows="3" asp-for="Description"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="taskDue" class="form-label">Due Date</label>
+        <input type="date" class="form-control" asp-for="Due" id="taskDue">
+    </div>
+    <div class="mb-3">
+        <input type="checkbox" id="TaskDone" value="true" asp-for="isCompleted">
+        <label for="TaskDone">Is Completed</label>
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Add Todo">
+    <input type="submit" class="btn btn-danger" asp-action="Delete" asp:asp-controller="Todos" value="Delete Todo">
+
+</form>
