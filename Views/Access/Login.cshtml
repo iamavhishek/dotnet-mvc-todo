@@ -1,0 +1,25 @@
+﻿@model FinalTodoApp.Models.VMLogin;
+@{
+}
+
+<form asp-controller="Access" asp-action="Login">
+    <div class="mb-3">
+        <label for="userEmail" class="form-label">Email address</label>
+        <input type="email" asp-for="Email" class="form-control" id="userEmail">
+    </div>
+    <div class="mb-3">
+        <label for="userPassword" class="form-label">Password</label>
+        <input type="password" class="form-control" id="userPassword" asp-for="Password">
+    </div>
+    <div class="mb-3 form-check">
+        <input asp-for="KeepLoggedIn" type="checkbox" class="form-check-input" id="keepMeLoggedin">
+        <label class="form-check-label" for="keepMeLoggedin">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+
+    @if(ViewData["ValidateMessage"]!=null)
+    {
+        <label>@ViewData["ValidateMessage"]</label>
+    }
+
+</form>

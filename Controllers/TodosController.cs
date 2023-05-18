@@ -1,11 +1,13 @@
 ﻿using FinalTodoApp.Data;
 using FinalTodoApp.Models;
 using FinalTodoApp.Models.Domain;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace FinalTodoApp.Controllers
 {
+    [Authorize]
     public class TodosController : Controller
     {
         private readonly MVCDbContext mvcc;
@@ -43,7 +45,6 @@ namespace FinalTodoApp.Controllers
             await mvcc.Todos.AddAsync(todo);
             await mvcc.SaveChangesAsync();
             return RedirectToAction("Index");
-
         }
 
         [HttpGet]
